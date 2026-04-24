@@ -402,7 +402,7 @@ def run_zmap_scan(port: int,
 
 def scan_ports_with_zmap(ports: list = None,
                          batch_size: int = 10000,
-                         bandwidth: str = ZMAP_BANDWIDTH) -> dict:
+                         bandwidth: str = '5M') -> dict:
     """
     Scan multiple ports using ZMap and return IPs grouped by port.
     
