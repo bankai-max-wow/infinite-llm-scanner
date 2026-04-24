@@ -400,9 +400,9 @@ def run_zmap_scan(port: int,
         return []
 
 
-def scan_ports_with_zmap(ports: list = None, 
+def scan_ports_with_zmap(ports: list = None,
                          batch_size: int = 10000,
-                         bandwidth: str = '10M') -> dict:
+                         bandwidth: str = ZMAP_BANDWIDTH) -> dict:
     """
     Scan multiple ports using ZMap and return IPs grouped by port.
     
@@ -427,7 +427,7 @@ def scan_ports_with_zmap(ports: list = None,
         ips = run_zmap_scan(
             port=port,
             bandwidth=bandwidth,
-            probe_rate=1000,
+            probe_rate=ZMAP_RATE,
             timeout=600  # 10 min timeout per port
         )
         # Limit to batch_size
